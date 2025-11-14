@@ -10,8 +10,9 @@ ETL project for processing Transjakarta transaction data using Apache Airflow an
 - [Running the Project](#running-the-project)
 - [Data Structure](#data-structure)
 - [Pipeline Flow](#pipeline-flow)
+- [Stopping Services](#stopping-services)
 
-## ✨ Overview
+## Overview
 
 - **Automated ETL Pipeline**: Pipeline runs daily at 07:00 WIB
 - **Data Warehouse**: Uses PostgreSQL with staging and cube schemas
@@ -22,7 +23,7 @@ ETL project for processing Transjakarta transaction data using Apache Airflow an
 - **CSV Export**: Aggregated results are exported to CSV files
 - **Docker-based**: All components run in Docker containers
 
-## 🔧 Prerequisites
+## Prerequisites
 
 Before starting, make sure you have installed:
 
@@ -37,7 +38,7 @@ docker --version
 docker compose version
 ```
 
-## 📦 Installation
+## Installation
 
 1. **Clone or download this repository**
 
@@ -80,7 +81,7 @@ docker compose version
    - `dummy_transaksi_halte.csv`
 
 
-## 🚀 Running the Project
+## Running the Project
 
 ### 1. Start Services
 
@@ -138,7 +139,7 @@ To run the DAG manually:
 5. Click **Trigger**
 
 
-## 📊 Data Structure
+## Data Structure
 
 ### Input Data
 
@@ -160,7 +161,7 @@ Generated CSV files in `data/output/`:
 
 File naming format: `YYYYMMDD_filename.csv` (example: `20250701_dummy_agg_by_card_type.csv`)
 
-## 🔄 Pipeline Flow
+## Pipeline Flow
 
 The pipeline consists of 4 tasks that run sequentially:
 
@@ -202,7 +203,7 @@ init_schemas → load_to_staging → transform_in_postgres → export_to_csv
 - Files are saved in `data/output/` with format `tablename_YYYYMMDD.csv`
 
 
-## 🛑 Stopping Services
+## Stopping Services
 
 To stop all services:
 
