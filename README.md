@@ -10,8 +10,6 @@ ETL project for processing Transjakarta transaction data using Apache Airflow an
 - [Running the Project](#running-the-project)
 - [Data Structure](#data-structure)
 - [Pipeline Flow](#pipeline-flow)
-- [Using Airflow UI](#using-airflow-ui)
-- [Troubleshooting](#troubleshooting)
 
 ## ✨ Overview
 
