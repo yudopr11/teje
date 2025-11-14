@@ -174,7 +174,7 @@ def transform_in_postgres(ds, **kwargs):
     logging.info("Starting transformation in PostgreSQL...")
     pg_hook = PostgresHook(postgres_conn_id=DWH_CONN_ID)
     
-    # This SQL should perform your logic:
+    # This SQL should perform the following logic:
     # 1. Join staging tables
     # 2. Standardize no_body_var 
     # 3. Handle duplicates 
