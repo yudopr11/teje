@@ -1,0 +1,26 @@
+"waktu_transaksi","route_code","route_name","gate_in_boo","jumlah_pelanggan","jumlah_amount"
+"2025-07-01","1","Blok M - Kota",False,1,2000
+"2025-07-01","1","Blok M - Kota",True,2,2000
+"2025-07-01","10","Tanjung Priok - PGC",False,2,23500
+"2025-07-01","2","Pulo Gadung - Monas",False,1,20000
+"2025-07-01","2","Pulo Gadung - Monas",True,2,55000
+"2025-07-01","3","Kalideres - Monas",False,2,22000
+"2025-07-01","3","Kalideres - Monas",True,1,20000
+"2025-07-01","4","Pulo Gadung - Galunggung",False,2,35000
+"2025-07-01","4","Pulo Gadung - Galunggung",True,4,43500
+"2025-07-01","5","Kampung Melayu - Ancol",False,1,20000
+"2025-07-01","6","Ragunan - Galunggung",True,1,20000
+"2025-07-01","7","Kampung Rambutan - Kampung Melayu",True,1,20000
+"2025-07-01","8","Lebak Bulus - Pasar Baru",False,1,2000
+"2025-07-01","9","Pinang Ranti - Pluit",False,1,2000
+"2025-07-01","9","Pinang Ranti - Pluit",True,1,0
+"2025-07-01","B21","Blok M - Bundaran Senayan",False,1,35000
+"2025-07-01","C12","Cawang - Harmoni",True,2,40000
+"2025-07-01","D11","Depok - Dukuh Atas",False,3,57000
+"2025-07-01","D11","Depok - Dukuh Atas",True,1,20000
+"2025-07-01","F11","Fatmawati - GBK",False,1,3500
+"2025-07-01","F11","Fatmawati - GBK",True,2,20000
+"2025-07-01","K22","Kampung Melayu - Senen",False,1,20000
+"2025-07-01","L13","Lebak Bulus - Monas",False,2,37000
+"2025-07-01","L13","Lebak Bulus - Monas",True,5,74000
+"2025-07-01","M14","Manggarai - Blok M",False,2,35000
