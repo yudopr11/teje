@@ -1,5 +1,6 @@
 import logging
 import csv
+import pendulum
 import pandas as pd
 from datetime import datetime
 from airflow.sdk import dag, task
@@ -10,6 +11,7 @@ from airflow.providers.postgres.hooks.postgres import PostgresHook
 DWH_CONN_ID = "postgres_dwh"
 INPUT_DIR = "/opt/airflow/data/input"
 OUTPUT_DIR = "/opt/airflow/data/output"
+local_tz = pendulum.timezone("Asia/Jakarta")
 
 @task
 def init_schemas():
@@ -326,7 +328,7 @@ def export_to_csv(ds, **kwargs):
 
 @dag(
     dag_id="dag_datapelangan",
-    start_date=datetime(2024, 1, 1),
+    start_date=pendulum.datetime(2025, 7, 1, tz=local_tz),
     schedule="0 7 * * *",  # Runs daily at 07:00
     catchup=False,
     tags=["transjakarta", "take-home-test"],
