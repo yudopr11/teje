@@ -1,0 +1,9 @@
+"waktu_transaksi","card_type_var","gate_in_boo","jumlah_pelanggan","jumlah_amount"
+"2025-07-02","BRIZZI",False,4,93500
+"2025-07-02","BRIZZI",True,6,145000
+"2025-07-02","E-Money",False,6,66000
+"2025-07-02","E-Money",True,8,77500
+"2025-07-02","Flazz",False,4,75500
+"2025-07-02","Flazz",True,3,2000
+"2025-07-02","JakCard",False,9,172500
+"2025-07-02","JakCard",True,3,40000

@@ -169,11 +169,11 @@ Required CSV files in `data/input/`:
 
 Generated CSV files in `data/output/`:
 
-- **{YYYYMMDD}_dummy_agg_by_card_type.csv**: Aggregation by card type
-- **{YYYYMMDD}_dummy_agg_by_route.csv**: Aggregation by route
-- **{YYYYMMDD}_dummy_agg_by_tarif.csv**: Aggregation by fare
+- **dummy_agg_by_card_type_{YYYYMMDD}.csv**: Aggregation by card type
+- **dummy_agg_by_route_{YYYYMMDD}.csv**: Aggregation by route
+- **dummy_agg_by_tarif_{YYYYMMDD}.csv**: Aggregation by fare
 
-File naming format: `YYYYMMDD_filename.csv` (example: `20250701_dummy_agg_by_card_type.csv`)
+File naming format: `tablename_YYYYMMDD_.csv` (example: `dummy_agg_by_card_type_20250701.csv`)
 
 ## Pipeline Flow
 
