@@ -2,7 +2,6 @@ import logging
 import csv
 import pendulum
 import pandas as pd
-from datetime import datetime
 from airflow.sdk import dag, task
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 
@@ -173,9 +172,10 @@ def transform_in_postgres(ds, **kwargs):
     Task 2: Run transformations using SQL.
     This runs SQL directly in PostgreSQL as requested.
     """
+    ds = pendulum.parse(ds).subtract(days=1).to_date_string()
     logging.info("Starting transformation in PostgreSQL...")
     pg_hook = PostgresHook(postgres_conn_id=DWH_CONN_ID)
-    
+
     # This SQL should perform the following logic:
     # 1. Join staging tables
     # 2. Standardize no_body_var 
@@ -303,6 +303,7 @@ def export_to_csv(ds, **kwargs):
     Task 3: Export aggregation tables from cube
     schema to CSV files in the data/output folder.
     """
+    ds = pendulum.parse(ds).subtract(days=1).to_date_string()
     logging.info(f"Exporting aggregated data to CSV for date: {ds}...")
     pg_hook = PostgresHook(postgres_conn_id=DWH_CONN_ID)
     
@@ -321,6 +322,11 @@ def export_to_csv(ds, **kwargs):
         
         # Get data ONLY for the execution date
         df = pg_hook.get_pandas_df(f"SELECT * FROM cube.{table_name} WHERE waktu_transaksi = '{ds}'")
+
+        if df.empty:
+            logging.info(f"No records found in cube.{table_name} for date {ds}. Skipping export.")
+            continue
+
         df.to_csv(f"{OUTPUT_DIR}/{file_name}", index=False, quoting=csv.QUOTE_NONNUMERIC)
         
     logging.info(f"All CSV exports complete for {ds}.")
