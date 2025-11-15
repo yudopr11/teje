@@ -41,7 +41,6 @@ ETL project for processing Transjakarta transaction data using Apache Airflow an
 ## Prerequisites
 
 Before starting, make sure you have installed:
-
 - **Docker** (version 20.10 or newer)
 - **Docker Compose** (version 2.0 or newer)
 - **Git** (for cloning the repository)
