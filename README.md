@@ -231,7 +231,7 @@ To stop and remove volumes (data will be lost):
 docker compose down -v
 ```
 
-## 📝 Important Notes
+## Important Notes
 
 1. **Schedule**: DAG runs daily at 07:00 WIB (UTC+7)
 2. **Date Filter**: Pipeline processes data based on DAG execution date
@@ -239,7 +239,7 @@ docker compose down -v
 4. **Status Filter**: Only transactions with `status_var = 'S'` are processed
 5. The `docker-compose.yaml` file is based on the configuration provided in the official [Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html), with several custom modifications applied.
 
-## 📚 References
+## References
 
 - [Apache Airflow Documentation](https://airflow.apache.org/docs/)
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
