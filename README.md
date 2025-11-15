@@ -23,6 +23,21 @@ ETL project for processing Transjakarta transaction data using Apache Airflow an
 - **CSV Export**: Aggregated results are exported to CSV files
 - **Docker-based**: All components run in Docker containers
 
+
+- **Infrastructure**: The ETL stack infrastructure consists of multiple Docker containers orchestrated via Docker Compose
+
+  [![](https://mermaid.ink/img/pako:eNqVVdtuozAQ_RXLUqVWSpoLSSBoVakNaRZt2rAhbaRNVpUbXGIFMDLQq_rvO9iEJbR9KA_IPjrH45kzA294wz2KTYzk4wsSb9HiYh3luyS7V8AaW3yzowKNeBjzhKJx9MgEj0IapWusyDXBORMPAX9CLhWPbEOTKi1_zh17RRSnSWKWAI2KH_eidbak9-jGRqbRNtp_D0Xu6OfYKmXJZku9LChkC5LskKsgFvk1pXU-uXPms1Ep9ojfjAWHmyVcHQAU5BCRfBQvZ_Nf43kpfeJiVwQdUQj_gpYSqakWc3syqchSwXyfikJp0QcqBPVQfu-kJrWv7UWpYxFLpcSGBSMBeyUp41FFQiPv_-ZTNyySEuSmXBCf1p1wJqtjhyepL6j7e4rMfk_rynhNVFwBWRcF4D1t76BqHiAntTvPx5btro7n1GMJMgeaPqxW6EJwqNDJty59xSFhLsCP-pUvp7MlVPYS7gZNafbhqQYrhN-v0C0PsvBjr9rXzs1i5QGjxaI4S1sqmHuLLllA6-bNbhYlnWdpyR8_x1yk4DgIk4_t6YLCT1plK0KD5M6D03XydAbkgO_JsvGnsP0sX7lQy6MjtB9KFqVURCRAGx5FdCODKJKqLGo2z5ShCoVhlZAzUXs5h18gFdl-6A6Yapi-girqYn4OmPlgHADVNyQoXcxT3NPBCclXIRTqTCSkfKofAJUvPgt53-3TcKVin88n2cn866WoBi0jgFN-eXQl89zVWk64gX3BPGw-kCChDRxSEZJ8j99yzhqnWxrCPJuw9IjY5X37DqKYRH84D7GZigxkgmf-tjwki6EzqcUIdH5YogIahYoRz6IUm9qgLw_B5ht-xmZXG54ODb2nGZ1-t631dL2BX7Cpd06HnW7b6Ax6_WG_3TfeG_hVhm2fGrpuGFpHG3T1bk9r9xoYPgswklfqZyP_Oe__AD1y2PQ?type=png)](https://mermaid.live/edit#pako:eNqVVdtuozAQ_RXLUqVWSpoLSSBoVakNaRZt2rAhbaRNVpUbXGIFMDLQq_rvO9iEJbR9KA_IPjrH45kzA294wz2KTYzk4wsSb9HiYh3luyS7V8AaW3yzowKNeBjzhKJx9MgEj0IapWusyDXBORMPAX9CLhWPbEOTKi1_zh17RRSnSWKWAI2KH_eidbak9-jGRqbRNtp_D0Xu6OfYKmXJZku9LChkC5LskKsgFvk1pXU-uXPms1Ep9ojfjAWHmyVcHQAU5BCRfBQvZ_Nf43kpfeJiVwQdUQj_gpYSqakWc3syqchSwXyfikJp0QcqBPVQfu-kJrWv7UWpYxFLpcSGBSMBeyUp41FFQiPv_-ZTNyySEuSmXBCf1p1wJqtjhyepL6j7e4rMfk_rynhNVFwBWRcF4D1t76BqHiAntTvPx5btro7n1GMJMgeaPqxW6EJwqNDJty59xSFhLsCP-pUvp7MlVPYS7gZNafbhqQYrhN-v0C0PsvBjr9rXzs1i5QGjxaI4S1sqmHuLLllA6-bNbhYlnWdpyR8_x1yk4DgIk4_t6YLCT1plK0KD5M6D03XydAbkgO_JsvGnsP0sX7lQy6MjtB9KFqVURCRAGx5FdCODKJKqLGo2z5ShCoVhlZAzUXs5h18gFdl-6A6Yapi-girqYn4OmPlgHADVNyQoXcxT3NPBCclXIRTqTCSkfKofAJUvPgt53-3TcKVin88n2cn866WoBi0jgFN-eXQl89zVWk64gX3BPGw-kCChDRxSEZJ8j99yzhqnWxrCPJuw9IjY5X37DqKYRH84D7GZigxkgmf-tjwki6EzqcUIdH5YogIahYoRz6IUm9qgLw_B5ht-xmZXG54ODb2nGZ1-t631dL2BX7Cpd06HnW7b6Ax6_WG_3TfeG_hVhm2fGrpuGFpHG3T1bk9r9xoYPgswklfqZyP_Oe__AD1y2PQ)
+
+  - **Component Descriptions**
+    - **PostgreSQL**: Stores both Airflow metadata and the data warehouse (`dwh_prod`) with `staging` and `cube` schemas
+    - **Redis**: Message broker for Celery executor, enabling distributed task execution
+    - **Airflow Scheduler**: Monitors DAGs and triggers tasks based on schedule
+    - **Airflow DAG Processor**: Parses and validates DAG files
+    - **Airflow Worker**: Executes tasks using Celery executor
+    - **Airflow API Server**: Provides web UI and REST API
+    - **Airflow Triggerer**: Handles deferred tasks and sensors
+    - **Flower**: Optional monitoring tool for Celery workers
+
 ## Prerequisites
 
 Before starting, make sure you have installed:
